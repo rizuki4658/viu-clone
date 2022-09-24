@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Biotif';
+  src: url('../public/fonts/Biotif-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Biotif-Bold';
+  src: url('../public/fonts/Biotif-Bold.ttf');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Biotif', Segoe UI;
 }
 
 body {
@@ -21,6 +30,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.cbold {
+  font-family: 'Biotif-Bold', Segoe UI;
 }
 
 @media (prefers-color-scheme: dark) {

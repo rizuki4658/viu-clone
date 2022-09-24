@@ -1,0 +1,51 @@
+import React from 'react'
+import Navigation from './Navigation'
+import Slider from './Slider'
+import Logo from './Logo'
+import SearchLogin from './SearchLogin'
+
+interface StateHeader {
+  mobile?: boolean
+}
+
+class Header extends React.Component<StateHeader, StateHeader> {
+  constructor (props: StateHeader) {
+    super(props)
+    this.state = {
+      mobile: false
+    }
+  }
+
+  setterState = (newState: StateHeader) => {
+    this.setState((state: StateHeader) => ({
+      ...state,
+      ...newState
+    })
+  )
+  }
+
+  handleResize = (e: any) => {
+    if (e.target.innerWidth <= 1024 && !this.state.mobile) {
+      this.setterState({ mobile: true })
+    } else if (e.target.innerWidth > 1024 && this.state.mobile) {
+      this.setterState({ mobile: false })
+    }
+  }
+
+  componentDidMount(): void {
+    window.addEventListener('resize', this.handleResize)
+  }
+
+  render() {
+    return (
+      <header className="flex items-center md:py-3 md:px-8 py-2 px-4 gap-x-6">
+        <Slider />
+        <Logo />
+        <Navigation mobile={this.state.mobile}/>
+        <SearchLogin mobile={this.state.mobile} />
+      </header>
+    )
+  }
+}
+
+export default Header
