@@ -4,3 +4,8 @@ export type Menu = {
 }
 
 export type Menus = Menu[]
+
+export type SideMenu = {
+  top: Menus
+  bottom: Menus
+}

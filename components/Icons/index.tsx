@@ -1,5 +1,7 @@
 import { FiSearch } from 'react-icons/fi'
 import { IoCloseSharp } from 'react-icons/io5'
+import { AiFillApple } from 'react-icons/ai'
+import { FaGooglePlay } from 'react-icons/fa'
 
 export const ViuLogo = () => {
   return (
@@ -23,3 +25,7 @@ export const Humberg = () => {
 export const Search = () => (<FiSearch />)
 
 export const Close = () => (<IoCloseSharp />)
+
+export const Apple = () => (<AiFillApple />)
+
+export const GooglePlay = () => (<FaGooglePlay />)

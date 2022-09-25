@@ -24,15 +24,17 @@ class Header extends React.Component<StateHeader, StateHeader> {
   )
   }
 
-  handleResize = (e: any) => {
-    if (e.target.innerWidth <= 1024 && !this.state.mobile) {
+  handleResize = (e: any, directWidth?: number) => {
+    const width = directWidth || e.target.innerWidth
+    if (width <= 1024 && !this.state.mobile) {
       this.setterState({ mobile: true })
-    } else if (e.target.innerWidth > 1024 && this.state.mobile) {
+    } else if (width > 1024 && this.state.mobile) {
       this.setterState({ mobile: false })
     }
   }
 
   componentDidMount(): void {
+    this.handleResize(null, window.innerWidth)
     window.addEventListener('resize', this.handleResize)
   }
 

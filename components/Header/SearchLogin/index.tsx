@@ -4,7 +4,11 @@ import { Search as IconSearch } from '../../Icons'
 const Login: React.FC<{ mobile?: boolean }> = ({...props}) => {
   if (!props.mobile) {
     return (
-      <div>Button Login</div>
+      <button
+        type="button"
+        className="px-6 py-3 text-sm bg-white bg-opacity-30 rounded-full hover:bg-yellow-500 hover:text-black">
+        Sign in / Sign Up
+      </button>
     )
   }
 
@@ -14,7 +18,9 @@ const Login: React.FC<{ mobile?: boolean }> = ({...props}) => {
 const SearchLogin: React.FC<{ mobile?: boolean }> = ({...props}) => {
   return (
     <div className="flex lg:flex-1 items-center justify-end gap-x-4">
-      <button className="flex items-center cbold gap-x-1">
+      <button
+        type="button"
+        className="flex items-center cbold gap-x-1">
         <span className="text-sm">Search</span>
         <IconSearch />
       </button>
