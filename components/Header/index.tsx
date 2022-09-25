@@ -41,7 +41,7 @@ class Header extends React.Component<StateHeader, StateHeader> {
   render() {
     return (
       <header className="flex items-center md:py-3 md:px-8 py-2 px-4 gap-x-6">
-        <Slider />
+        <Slider mobile={this.state.mobile} />
         <Logo />
         <Navigation mobile={this.state.mobile}/>
         <SearchLogin mobile={this.state.mobile} />

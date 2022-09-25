@@ -13,7 +13,11 @@ const Icon: React.FC<{ opened?: boolean }> = ({...props}) => {
   return <Humberg />
 }
 
-const MenuSlider: React.FC<{ open: boolean, onClose?: any }> = ({...props}) => {  
+const MenuSlider: React.FC<{
+  open: boolean,
+  onClose?:any,
+  mobile?: boolean
+}> = ({...props}) => {  
   const handleClose = (e: any) => {
     props.onClose()
   }
@@ -34,13 +38,13 @@ const MenuSlider: React.FC<{ open: boolean, onClose?: any }> = ({...props}) => {
           ref={nodeMenuSlider}
           className="bg-black bg-opacity-90 fixed top-0 left-0 right-0 bottom-0"
           onClick={handleClose} />
-        <Items open={props.open} />
+        <Items mobile={props.mobile} open={props.open} />
       </div>
     </CSSTransition>
   )
 }
 
-const Slider: React.FC<{}> = () => {
+const Slider: React.FC<{ mobile?: boolean }> = ({...props}) => {
   const [sliderState, setSliderState] = useState({
     opened: false
   })
@@ -61,6 +65,7 @@ const Slider: React.FC<{}> = () => {
       <MenuSlider
         open={sliderState.opened}
         onClose={handleOpenSlide}
+        mobile={props.mobile}
       />
     </div>
   )

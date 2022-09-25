@@ -2,6 +2,7 @@ import { FiSearch } from 'react-icons/fi'
 import { IoCloseSharp } from 'react-icons/io5'
 import { AiFillApple } from 'react-icons/ai'
 import { FaGooglePlay } from 'react-icons/fa'
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 
 export const ViuLogo = () => {
   return (
@@ -29,3 +30,7 @@ export const Close = () => (<IoCloseSharp />)
 export const Apple = () => (<AiFillApple />)
 
 export const GooglePlay = () => (<FaGooglePlay />)
+
+export const CaretUp = () => (<MdKeyboardArrowUp />)
+
+export const CaretDown = () => (<MdKeyboardArrowDown />)
