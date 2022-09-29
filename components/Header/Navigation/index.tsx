@@ -7,7 +7,9 @@ const Items: React.FC<{}> = () => {
     return (
       <li key={key}>
         <Link href={item.link}>
-          <a className="cbold text-sm">{item.name}</a>
+          <a className="cbold text-sm hover:text-yellow-500 focus:bg-yellow-500">
+            {item.name}
+          </a>
         </Link>
       </li>
     )
