@@ -124,3 +124,28 @@ a {
   overflow: hidden;
   transition: all ease-in-out 200ms;
 }
+
+.search-slide-enter {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  /* opacity: 0; */
+}
+.search-slide-enter-active {
+  height: 100%;
+  opacity: 1;
+  overflow: hidden;
+  transition: all ease-in-out 300ms;
+}
+.search-slide-exit {
+  height: 100%;
+  opacity: 1;
+  overflow: hidden;
+  /* opacity: 1; */
+}
+.search-slide-exit-active {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all ease-in-out 300ms;
+}

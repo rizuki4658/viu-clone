@@ -9,3 +9,8 @@ export type SideMenu = {
   top: Menus
   bottom: Menus
 }
+
+export type Movie = {
+  link: string
+  name: string
+}
