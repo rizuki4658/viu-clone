@@ -41,21 +41,28 @@ a {
   font-family: 'Biotif-Semibold', Segoe UI, sans-serif;
 }
 
-.menu-slider-items::-webkit-scrollbar {
+.menu-slider-items::-webkit-scrollbar,
+.search-modal::-webkit-scrollbar {
   width: .5rem;
   height: .5rem;
 }
    
-.menu-slider-items::-webkit-scrollbar-track {
+.menu-slider-items::-webkit-scrollbar-track,
+.search-modal::-webkit-scrollbar-track {
   /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
 }
   
-.menu-slider-items::-webkit-scrollbar-thumb {
+.menu-slider-items::-webkit-scrollbar-thumb,
+.search-modal::-webkit-scrollbar-thumb {
   background-color: #C1C1C1;
   border-radius: 50px;
   /* outline: 1px solid slategrey; */
 }
 
+.search-modal::-webkit-scrollbar {
+  width: .2rem;
+  height: .2rem;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

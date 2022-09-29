@@ -3,6 +3,8 @@ import { IoCloseSharp } from 'react-icons/io5'
 import { AiFillApple } from 'react-icons/ai'
 import { FaGooglePlay } from 'react-icons/fa'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
+import { GoClock } from 'react-icons/go'
+import { BiTrendingUp } from 'react-icons/bi'
 
 export const ViuLogo = () => {
   return (
@@ -34,3 +36,7 @@ export const GooglePlay = () => (<FaGooglePlay />)
 export const CaretUp = () => (<MdKeyboardArrowUp />)
 
 export const CaretDown = () => (<MdKeyboardArrowDown />)
+
+export const Clock = () => (<GoClock />)
+
+export const TrendingUp = () => (<BiTrendingUp />)

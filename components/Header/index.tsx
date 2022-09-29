@@ -18,10 +18,10 @@ class Header extends React.Component<StateHeader, StateHeader> {
 
   setterState = (newState: StateHeader) => {
     this.setState((state: StateHeader) => ({
-      ...state,
-      ...newState
-    })
-  )
+        ...state,
+        ...newState
+      })
+    )
   }
 
   handleResize = (e: any, directWidth?: number) => {
