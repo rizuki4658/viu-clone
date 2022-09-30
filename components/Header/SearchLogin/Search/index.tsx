@@ -121,7 +121,7 @@ class Search extends React.Component<StateSearch, StateSearch> {
         <ul className="mt-8">
           {this.state.results?.map((item: Movie, key: number) => {
             return (
-              <li key={key} className="md:inline-block md:w-1/2 md:px-2 py-2">
+              <li key={key} className="md:inline-block sm:w-1/2 md:px-2 py-2">
                 <button
                   className="flex items-center bg-gray-700 bg-opacity-0 hover:bg-opacity-30 px-4 py-2 gap-x-2 w-full hover:text-yellow-500 transition-all duration-300 ease-in-out rounded-full">
                   <span className="text-2xl"><IconTrendingUp /></span>
@@ -164,7 +164,7 @@ class Search extends React.Component<StateSearch, StateSearch> {
                 type="text"
                 placeholder="Search by Title, Genre, People"
                 autoComplete="off"
-                className="bg-transparent block w-full py-2 text-2xl text-center focus:outline-none" />
+                className="bg-transparent block w-full py-2 text-lg md:text-2xl text-center focus:outline-none" />
             </form>
             {this.History()}
             {this.Results()}
