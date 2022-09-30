@@ -17,6 +17,7 @@ class Login extends React.Component<LoginProps, LoginState> {
     }
 
     this.handleShow = this.handleShow.bind(this)
+    this.ContentModal = this.ContentModal.bind(this)
     this.Modal = this.Modal.bind(this)
   }
 
@@ -37,6 +38,32 @@ class Login extends React.Component<LoginProps, LoginState> {
     this.setterState({ show: true })
   }
 
+  ContentModal() {
+    const nodeContentModalRef = useRef(null)
+
+    return (
+      <CSSTransition
+        in={this.state.show}
+        timeout={300}
+        nodeRef={nodeContentModalRef}
+        unmountOnExit
+        appear>
+        <div
+          ref={nodeContentModalRef}
+          className="fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-w-2xl max-h-96">
+          <div className="bg-white rounded-3xl text-gray-500 flex items-center">
+            <div className="pb-6 px-10 pt-10 sm:w-96">
+              <div className="text-center mb-4">
+                <h4 className="cbold text-3xl mb-1">dan dapatkan</h4>
+                <span>15 hari gratis menonton semua video premium.</span>GRATIS
+              </div>
+            </div>
+          </div>
+        </div>
+      </CSSTransition>
+    )
+  }
+
   Modal() {
     const nodeModalLogin = useRef(null)
     return (
@@ -53,6 +80,7 @@ class Login extends React.Component<LoginProps, LoginState> {
             className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
             onClick={this.handleShow}
           />
+          <this.ContentModal />
         </>
       </CSSTransition>
     )
