@@ -5,6 +5,7 @@ import { FaGooglePlay } from 'react-icons/fa'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 import { GoClock } from 'react-icons/go'
 import { BiTrendingUp } from 'react-icons/bi'
+import { AiFillFacebook } from 'react-icons/ai'
 
 export const ViuLogo = () => {
   return (
@@ -40,3 +41,5 @@ export const CaretDown = () => (<MdKeyboardArrowDown />)
 export const Clock = () => (<GoClock />)
 
 export const TrendingUp = () => (<BiTrendingUp />)
+
+export const Facebook = () => (<AiFillFacebook />)
