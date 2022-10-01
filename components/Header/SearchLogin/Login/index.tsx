@@ -46,6 +46,7 @@ class Login extends React.Component<LoginProps, LoginState> {
         in={this.state.show}
         timeout={300}
         nodeRef={nodeContentModalRef}
+        classNames="fade"
         unmountOnExit
         appear>
         <div
@@ -53,10 +54,24 @@ class Login extends React.Component<LoginProps, LoginState> {
           className="fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-w-2xl max-h-96">
           <div className="bg-white rounded-3xl text-gray-500 flex items-center">
             <div className="pb-6 px-10 pt-10 sm:w-96">
-              <div className="text-center mb-4">
-                <h4 className="cbold text-3xl mb-1">dan dapatkan</h4>
-                <span>15 hari gratis menonton semua video premium.</span>GRATIS
+              <div className="text-center mb-6">
+                <h4 className="cbold text-4xl mb-1">Sigh Up</h4>
+                <span>and get 15 days free access to all Premium videos.</span>
               </div>
+              <ul>
+                <li>
+                  <button>Continue with Facebook</button>
+                </li>
+                <li>
+                  <button>Continue with Google</button>
+                </li>
+                <li>
+                  <button>Continue with Apple</button>
+                </li>
+                <li>
+                  <button>Continue with Email</button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
