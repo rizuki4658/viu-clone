@@ -63,9 +63,9 @@ class Login extends React.Component<LoginProps, LoginState> {
         appear>
         <div
           ref={nodeContentModalRef}
-          className="mx-auto mt-20 max-w-3xl max-h-96">
+          className="mx-auto mt-20 max-w-3xl">
           <div className="bg-white rounded-3xl text-gray-500 flex items-center">
-            <div className="pb-6 px-10 pt-10 sm:w-96">
+            <div className="pb-6 px-10 pt-10 flex-1">
               <div className="text-center mb-10">
                 <h4 className="cbold text-4xl mb-1">Sign Up</h4>
                 <span>and get 15 days free access to all Premium videos.</span>
@@ -73,7 +73,7 @@ class Login extends React.Component<LoginProps, LoginState> {
               <ul>
                 <li className="mb-3">
                   <button
-                    className="bg-blue-700 text-white p-5 cbold text-sm w-full flex items-center rounded-full gap-x-4">
+                    className="bg-blue-600 text-white p-5 cbold text-sm w-full flex items-center rounded-full gap-x-4">
                     <span className="text-xl">
                       <IconFacebook />
                     </span>
@@ -123,6 +123,11 @@ class Login extends React.Component<LoginProps, LoginState> {
                   &nbsp;and&nbsp;
                   <span className="cbold">Privacy Policy</span>
                 </div>
+            </div>
+            <div
+              className="md:block bg-black"
+              style={{ width: '360px' }}>
+              <img src="./img/login-image.png" className="rounded-tr-3xl rounded-br-3xl" />
             </div>
           </div>
         </div>
