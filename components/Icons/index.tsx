@@ -1,11 +1,11 @@
 import { FiSearch } from 'react-icons/fi'
 import { IoCloseSharp } from 'react-icons/io5'
-import { AiFillApple } from 'react-icons/ai'
+import { AiFillApple, AiOutlineMail, AiFillFacebook } from 'react-icons/ai'
 import { FaGooglePlay } from 'react-icons/fa'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 import { GoClock } from 'react-icons/go'
 import { BiTrendingUp } from 'react-icons/bi'
-import { AiFillFacebook } from 'react-icons/ai'
+import { FcGoogle } from 'react-icons/fc'
 
 export const ViuLogo = () => {
   return (
@@ -43,3 +43,7 @@ export const Clock = () => (<GoClock />)
 export const TrendingUp = () => (<BiTrendingUp />)
 
 export const Facebook = () => (<AiFillFacebook />)
+
+export const GoogleColor = () => (<FcGoogle />)
+
+export const Email = () => (<AiOutlineMail />)

@@ -1,6 +1,11 @@
 import React, { useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { Facebook as IconFacebook } from '../../../Icons'
+import {
+  Facebook as IconFacebook,
+  Apple as IconApple,
+  GoogleColor as IconGoogle,
+  Email as IconEmail
+} from '../../../Icons'
 
 interface LoginProps {
   mobile?: boolean
@@ -70,18 +75,21 @@ class Login extends React.Component<LoginProps, LoginState> {
                 <li className="mb-3">
                   <button
                     className="p-5 cbold text-gray-400 border border-gray-400 text-sm w-full flex items-center rounded-full">
+                    <IconGoogle />
                     Continue with Google
                   </button>
                 </li>
                 <li className="mb-3">
                   <button
                     className="text-white bg-black p-5 cbold text-sm w-full flex items-center rounded-full">
+                    <IconApple />
                     Continue with Apple
                   </button>
                 </li>
                 <li>
                   <button
                     className="text-gray-700 bg-yellow-500 p-5 cbold text-sm w-full flex items-center rounded-full">
+                    <IconEmail />
                     Continue with Email or Mobile
                   </button>
                 </li>
