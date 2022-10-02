@@ -23,6 +23,7 @@ class Login extends React.Component<LoginProps, LoginState> {
     }
 
     this.handleShow = this.handleShow.bind(this)
+    this.handleShowPrevent = this.handleShowPrevent.bind(this)
     this.ContentModal = this.ContentModal.bind(this)
     this.Modal = this.Modal.bind(this)
   }
@@ -35,13 +36,18 @@ class Login extends React.Component<LoginProps, LoginState> {
     )
   }
 
-  handleShow() {
+  handleShow(e: any) {
     if (this.state.show) {
+      if (!e.target.className.includes('wrapper-login')) return e.preventDefault() 
       return this.setterState({
         show: false
       })
     }
     this.setterState({ show: true })
+  }
+
+  handleShowPrevent(e: Event) {
+    e.preventDefault()
   }
 
   ContentModal() {
@@ -57,7 +63,7 @@ class Login extends React.Component<LoginProps, LoginState> {
         appear>
         <div
           ref={nodeContentModalRef}
-          className="fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 max-w-2xl max-h-96">
+          className="mx-auto mt-20 max-w-3xl max-h-96">
           <div className="bg-white rounded-3xl text-gray-500 flex items-center">
             <div className="pb-6 px-10 pt-10 sm:w-96">
               <div className="text-center mb-10">
@@ -67,33 +73,56 @@ class Login extends React.Component<LoginProps, LoginState> {
               <ul>
                 <li className="mb-3">
                   <button
-                    className="bg-blue-700 text-white p-5 cbold text-sm w-full flex items-center rounded-full">
-                    <IconFacebook />
-                    Continue with Facebook
+                    className="bg-blue-700 text-white p-5 cbold text-sm w-full flex items-center rounded-full gap-x-4">
+                    <span className="text-xl">
+                      <IconFacebook />
+                    </span>
+                    <span className="leading-none pt-1">
+                      Continue with Facebook
+                    </span>
                   </button>
                 </li>
                 <li className="mb-3">
                   <button
-                    className="p-5 cbold text-gray-400 border border-gray-400 text-sm w-full flex items-center rounded-full">
-                    <IconGoogle />
-                    Continue with Google
+                    className="p-5 cbold text-gray-400 border border-gray-400 text-sm w-full flex items-center rounded-full gap-x-4">
+                    <span className="text-xl">
+                      < IconGoogle />
+                    </span>
+                    <span className="leading-none pt-1">
+                      Continue with Google
+                    </span>
                   </button>
                 </li>
                 <li className="mb-3">
                   <button
-                    className="text-white bg-black p-5 cbold text-sm w-full flex items-center rounded-full">
-                    <IconApple />
-                    Continue with Apple
+                    className="text-white bg-black p-5 cbold text-sm w-full flex items-center rounded-full gap-x-4">
+                    <span className="text-xl">
+                      <IconApple />
+                    </span>
+                    <span className="leading-none pt-1">
+                      Continue with Apple
+                    </span>
                   </button>
                 </li>
                 <li>
                   <button
-                    className="text-gray-700 bg-yellow-500 p-5 cbold text-sm w-full flex items-center rounded-full">
-                    <IconEmail />
-                    Continue with Email or Mobile
+                    className="text-gray-700 bg-yellow-500 p-5 cbold text-sm w-full flex items-center rounded-full gap-x-4">
+                    <span className="text-xl">
+                      <IconEmail />
+                    </span>
+                    <span className="leading-none pt-1">
+                      Continue with Email or Mobile
+                    </span>
                   </button>
                 </li>
               </ul>
+              <div
+                className="mt-4 text-xs text-center">
+                  By continuing, you agree to Viu&nbsp;
+                  <span className="cbold">Terms and conditions</span>
+                  &nbsp;and&nbsp;
+                  <span className="cbold">Privacy Policy</span>
+                </div>
             </div>
           </div>
         </div>
@@ -111,14 +140,15 @@ class Login extends React.Component<LoginProps, LoginState> {
         classNames="fade"
         appear
         unmountOnExit>
-        <>
+        <div
+          ref={nodeModalLogin}
+          className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50">
           <div
-            ref={nodeModalLogin}
-            className="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
-            onClick={this.handleShow}
-          />
-          <this.ContentModal />
-        </>
+            className="wrapper-login relative min-h-full overflow-y-auto"
+            onClick={this.handleShow}>
+            <this.ContentModal />
+          </div>
+        </div>
       </CSSTransition>
     )
   }
