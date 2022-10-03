@@ -71,22 +71,41 @@ a {
   width: 100%;
   margin-bottom: 30px;
   min-height: 100px;
+  height: 115px;
   position: relative;
+  margin: 40px 0 0;
   z-index: 0;
 }
-@media (max-width: 1500px) {
+
+@media (min-width: 640px) {
+  .container-carousel {
+    height: 217px;
+    margin: 0;
+  }
+}
+@media (min-width: 768px) {
+  .container-carousel {
+    height: 265px;
+  }
+}
+@media (min-width: 1024px) {
+  .container-carousel {
+    height: 350px;
+  }
+}
+@media (min-width: 1280px) {
   .container-carousel {
     height: 495px;
   }
 }
-@media (max-width: 1700px) {
+@media (min-width: 1536px) {
   .container-carousel {
-      height: 570px;
+    height: 690px;
   }
 }
-@media (max-width: 1900px) {
+@media (min-width: 2100px) {
   .container-carousel {
-    height: 650px;
+    height: 760px;
   }
 }
 
