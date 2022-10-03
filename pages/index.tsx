@@ -1,12 +1,16 @@
 import type { NextPage } from 'next'
-import Header from '../components/Header'
 
+import Carousel  from '../components/Carousel'
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
-  return (<div>OKAY</div>)
+  return (
+    <div>
+      <Carousel />
+    </div>
+  )
 }
 
 export default Home

@@ -64,6 +64,32 @@ a {
   height: .2rem;
 }
 
+.container-carousel {
+  display: block;
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 30px;
+  min-height: 100px;
+  position: relative;
+  z-index: 0;
+}
+@media (max-width: 1500px) {
+  .container-carousel {
+    height: 495px;
+  }
+}
+@media (max-width: 1700px) {
+  .container-carousel {
+      height: 570px;
+  }
+}
+@media (max-width: 1900px) {
+  .container-carousel {
+    height: 650px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
