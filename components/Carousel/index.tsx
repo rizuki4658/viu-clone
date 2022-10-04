@@ -47,7 +47,7 @@ class Carousel extends React.Component<Props, State> {
       clearTimeout(this.slideTime)
     } else {
       index += 1
-      if (index > this.state.slides.length - 1) index = undefined
+      if (index > this.state.slides.length - 1) index = 0
       this.stateSetter('current', index)
       clearTimeout(this.slideTime)
     }
