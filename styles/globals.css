@@ -77,6 +77,14 @@ a {
   z-index: 0;
 }
 
+.carousel-next {
+  cursor: url('/img/cursor-right.png'), auto;
+}
+
+.carousel-prev {
+  cursor: url('/img/cursor-left.png'), auto;
+}
+
 @media (min-width: 640px) {
   .container-carousel {
     height: 217px;
