@@ -2,21 +2,21 @@ export const sliders = [
   {
     name: '',
     link: '',
-    img: 'slider-one.webp'
+    img: 'slide-one.webp'
   },
   {
     name: '',
     link: '',
-    img: 'slider-two.webp'
+    img: 'slide-two.webp'
   },
   {
     name: '',
     link: '',
-    img: 'slider-three.webp'
+    img: 'slide-three.webp'
   },
   {
     name: '',
     link: '',
-    img: 'slider-four.webp'
+    img: 'slide-four.webp'
   }
 ]
