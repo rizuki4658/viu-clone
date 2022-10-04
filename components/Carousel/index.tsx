@@ -45,9 +45,10 @@ class Carousel extends React.Component<Props, State> {
     if (index === undefined) {
       this.stateSetter('current', 0)
     } else {
-      index++
+      index += 1
       if (index > this.state.slides.length - 1) index = 0
       this.stateSetter('current', index)
+      clearTimeout(this.slideTime)
     }
     this.slideTime = setTimeout(this.goToSlide, 3000)
   }
@@ -85,7 +86,9 @@ class Carousel extends React.Component<Props, State> {
   render() {
     return (
       <div className="container-carousel">
-        <div className="relative h-full w-full">
+        <div
+          className="relative h-full w-full"
+          onMouseLeave={this.autoplay}>
           <button
             className="absolute left-0 top-0 bottom-0 w-24"
             onClick={this.prevSlide}
