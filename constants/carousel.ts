@@ -1,22 +1,28 @@
+import { createRef } from 'react'
+
 export const sliders = [
   {
     name: '',
     link: '',
-    img: 'slide-one.webp'
+    img: 'slide-one.webp',
+    nodeRef: createRef()
   },
   {
     name: '',
     link: '',
-    img: 'slide-two.webp'
+    img: 'slide-two.webp',
+    nodeRef: createRef()
   },
   {
     name: '',
     link: '',
-    img: 'slide-three.webp'
+    img: 'slide-three.webp',
+    nodeRef: createRef()
   },
   {
     name: '',
     link: '',
-    img: 'slide-four.webp'
+    img: 'slide-four.webp',
+    nodeRef: createRef()
   }
 ]

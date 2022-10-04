@@ -1,5 +1,5 @@
 import React from 'react'
-import { CSSTransition } from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { sliders as Sliders } from '../../constants/carousel' 
 
 type State = {
@@ -94,47 +94,40 @@ class Carousel extends React.Component<Props, State> {
             className="carousel-prev absolute left-0 top-0 bottom-0 w-24"
             onClick={this.prevSlide}
           />
-          <div className="w-full h-full block">
+          <TransitionGroup
+            className="w-full h-full block">
             {
-              this.state.slides.map((item: any, key: number) => {
-                return (
-                  <CSSTransition
-                    in={key === this.state.current}
-                    nodeRef={this.nodeCarouselItemRef}
-                    timeout={300}
-                    classNames="fade"
-                    unmountOnExit
-                    appear>
-                    <a
-                      ref={this.nodeCarouselItemRef}
-                      href="#"
-                      className="w-full h-full block">
-                      <div
-                        style={{
-                          backgroundImage: `url(/img/${item.img}`,
-                          backgroundPosition: 'center',
-                          backgroundRepeat: 'no-repeat',
-                          backgroundSize: 'cover'
-                        }}
-                        className="h-full w-full"
-                      />
-                    </a>
-                  </CSSTransition>
-                )
+              this.state.slides.map((item, key) => {
+                if (key === this.state.current) {
+                  return (
+                    <CSSTransition
+                      key={key}
+                      nodeRef={item.nodeRef}
+                      timeout={300}
+                      classNames="fade"
+                      unmountOnExit
+                      appear>
+                      <a
+                        ref={item.nodeRef}
+                        key={key}
+                        href="#"
+                        className="w-full h-full absolute">
+                        <div
+                          style={{
+                            backgroundImage: `url(/img/${typeof this.state.current === 'undefined' ? '' : this.state.slides[this.state.current].img})`,
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'cover'
+                          }}
+                          className="h-full w-full"
+                          />
+                      </a>
+                    </CSSTransition>
+                  )
+                }
               })
             }
-            {/* <a href="#" className="w-full h-full block">
-              <div
-                style={{
-                  backgroundImage: `url(/img/${typeof this.state.current === 'undefined' ? '' : this.state.slides[this.state.current].img})`,
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'cover'
-                }}
-                className="h-full w-full"
-              />
-            </a> */}
-          </div>
+          </TransitionGroup>
           <button
             className="carousel-next absolute right-0 top-0 bottom-0 w-24"
             onClick={this.nextSlide}
