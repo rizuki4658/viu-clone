@@ -5,7 +5,6 @@ type State = {
   current: number | undefined
   slides: any[]
   time: number
-  interval: any
 }
 
 type Props = {
@@ -20,8 +19,7 @@ class Carousel extends React.Component<Props, State> {
     this.state = {
       current: undefined,
       slides: Sliders,
-      time: Sliders.length,
-      interval: null
+      time: Sliders.length
     }
 
     this.goToSlide = this.goToSlide.bind(this)
