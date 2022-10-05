@@ -111,7 +111,7 @@ class Carousel extends React.Component<Props, State> {
                         ref={item.nodeRef}
                         key={key}
                         href="#"
-                        className="w-full h-full absolute">
+                        className="w-full h-full">
                         <div
                           style={{
                             backgroundImage: `url(/img/${typeof this.state.current === 'undefined' ? '' : this.state.slides[this.state.current].img})`,
