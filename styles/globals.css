@@ -85,6 +85,14 @@ a {
   cursor: url('/img/cursor-left.png'), auto;
 }
 
+.carousel-movie-list {
+  scroll-behavior: smooth;
+}
+.carousel-movie-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 @media (min-width: 640px) {
   .container-carousel {
     height: 217px;
