@@ -1,19 +1,13 @@
 import React, { useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import { LoginState, LoginProps } from '../../../../types'
+
 import {
   Facebook as IconFacebook,
   Apple as IconApple,
   GoogleColor as IconGoogle,
   Email as IconEmail
 } from '../../../Icons'
-
-interface LoginProps {
-  mobile?: boolean
-}
-
-interface LoginState {
-  show?: boolean
-}
 
 class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {

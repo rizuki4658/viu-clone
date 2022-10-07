@@ -68,8 +68,6 @@ class MovieList extends React.Component<MovieListProps, MovieListState> {
   }
 
   handleResize(e: any) {
-    // const test = document.getElementById('containerList')
-    // console.log(7 / Math.round(1280 / test?.clientWidth))
     this.stateSetter('screen', e.target.innerWidth)
   }
 
@@ -80,6 +78,18 @@ class MovieList extends React.Component<MovieListProps, MovieListState> {
   render() {
     return (
       <div id="containerList">
+        <HeaderList {...this.state.title} />
+        <CarouselLists
+          items={this.state.items}
+        />
+        <HeaderList {...this.state.title} />
+        <CarouselLists
+          items={this.state.items}
+        />
+        <HeaderList {...this.state.title} />
+        <CarouselLists
+          items={this.state.items}
+        />
         <HeaderList {...this.state.title} />
         <CarouselLists
           items={this.state.items}
