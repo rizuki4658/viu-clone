@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import { movies } from '../../../../constants/search'
-import { Movie } from '../../../../types'
+import { StateSearch, Movie } from '../../../../types'
 
 import {
   Search as IconSearch,
@@ -10,14 +10,6 @@ import {
   Clock as IconClock,
   TrendingUp as IconTrendingUp
 } from '../../../Icons'
-
-interface StateSearch {
-  show?: boolean
-  search?: string | undefined
-  history?: string[]
-  results?: Movie[]
-  onSearch?: boolean
-}
 
 class Search extends React.Component<StateSearch, StateSearch> {
   constructor (props: StateSearch) {
