@@ -89,8 +89,8 @@ a {
   scroll-behavior: smooth;
 }
 .carousel-movie-list::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+  /* width: 1px;
+  height: 1px; */
 }
 
 @media (min-width: 640px) {
