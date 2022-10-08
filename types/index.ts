@@ -16,3 +16,4 @@ export type Movie = {
 }
 
 export * from './searchLogin'
+export * from './movies'

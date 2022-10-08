@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
+import {
+  MovieTitle,
+  MovieListProps,
+  MovieListState
+} from '../../../types'
 
 import CarouselLists from './carousel'
 
-type Items = {
-  name: string
-  img: string
-}
-
-type Title = {
-  name: string
-  link: string
-  allText: string
-  allLink: string
-}
-
-type MovieListProps = {
-  title: Title
-  items: Items[]
-  screen?: number
-}
-
-type MovieListState = MovieListProps
-
-const HeaderList: React.FC<Title> = (props) => {
+const HeaderList: React.FC<MovieTitle> = (props) => {
   return (
     <div className="flex items-center justify-between gap-x-6 py-3">
       <h2 className="text-xl">

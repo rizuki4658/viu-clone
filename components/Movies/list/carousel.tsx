@@ -1,22 +1,11 @@
 import React from 'react'
+import {
+  MoviePropsType,
+  MovieStateType
+} from '../../../types'
 
-type Item = {
-  name: string
-  img: string
-}
-
-type StateType = {
-  items?: [],
-  counter: 0
-}
-
-type PropsType = {
-  items: Item[]
-}
-
-
-class CarouselLists extends React.Component<PropsType, StateType> {
-  constructor(props: PropsType) {
+class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
+  constructor(props: MoviePropsType) {
     super(props)
     this.state = {
       items: [],
