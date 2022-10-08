@@ -1,15 +1,45 @@
-import React from 'react'
+import React,{ createRef } from 'react'
 import {
   MoviePropsType,
   MovieStateType
 } from '../../../types'
+
+import Card from './card'
+
+const ButtonControl: React.FC<{
+  show: boolean
+  type: "next" | "prev"
+  callback: () => void
+}> = ({...props}) => {
+  let buttonClass = [
+    'absolute',
+    'z-10',
+    'top-0 bottom-0',
+    'lg:w-24 w-8'
+  ]
+  if (props.show) {
+    if (props.type === 'next') {
+      buttonClass = [...buttonClass, 'lg:-right-12', '-right-6', 'carousel-next']
+    } else buttonClass = [...buttonClass, 'lg:-left-12', '-left-6', 'carousel-prev']
+
+    return (
+      <button
+        className={ buttonClass.join(' ') }
+        onClick={props.callback}
+      />
+    )
+  } return <></>
+}
 
 class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
   constructor(props: MoviePropsType) {
     super(props)
     this.state = {
       items: [],
-      counter: 0
+      counter: 0,
+      showButton: true,
+      refChild: createRef(),
+      refParent: createRef()
     }
 
     this.nextClick = this.nextClick.bind(this)
@@ -26,55 +56,103 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
   }
 
   nextClick() {
-    const child: any = document.querySelector('#carouselMovieList')
-    const parent: any = document.querySelector('#carouselMovieParent')
+    const parent = this.state.refParent.current
+    const child = this.state.refChild.current
     if (parent.scrollLeft >= parent.scrollWidth) return
-    const perScroll: any = Math.round(child.scrollWidth / 14)
+    const perScroll: any = Math.round(child.scrollWidth / 14) // 14 change by items length
     parent.scrollLeft += perScroll
     this.stateSetter('counter', this.state.counter + perScroll)
   }
 
   prevClick() {
-    const child: any = document.querySelector('#carouselMovieList')
-    const parent: any = document.querySelector('#carouselMovieParent')
+    const parent = this.state.refParent.current
+    const child = this.state.refChild.current
     if (parent.scrollLeft <= 0) return
-    const perScroll: any = Math.round(child.scrollWidth / 14)
+    const perScroll: any = Math.round(child.scrollWidth / 14) // 14 change by items length
     parent.scrollLeft -= perScroll
     this.stateSetter('counter', this.state.counter - perScroll)
   }
 
+  componentDidMount(): void {
+    const parent = this.state.refParent.current
+    const child = this.state.refChild.current
+    this.stateSetter('showButton', child.offsetWidth > parent.offsetWidth)
+  }
 
   render() {
     return (
-      <div className="max-w-7xl relative mb-10 text-center">
+      <div className="max-w-7xl relative mb-10">
         <div
-          id="carouselMovieParent"
+          ref={this.state.refParent}
           className="carousel-movie-list max-w-7xl scroll-smooth overflow-hidden">
-          <button
-            className="absolute z-10 lg:-left-12 -left-6 top-0 bottom-0 lg:w-24 w-8 carousel-prev"
-            onClick={this.prevClick}
+          <ButtonControl
+            show={this.state.showButton}
+            type="prev"
+            callback={this.prevClick}
           />
           <div
-            id="carouselMovieList"
+            ref={this.state.refChild}
             className="md:h-64 h-32 space-x-4 whitespace-nowrap inline-block">
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">1</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">2</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">3</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">4</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">5</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">6</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">7</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">8</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">9</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">10</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">11</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">12</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">13</div>
-            <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20">14</div>
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
+            <Card {...{
+              img: '',
+              name: '1',
+              desc: ''
+            }} />
           </div>
-          <button
-            className="absolute z-10 lg:-right-12 -right-6 top-0 bottom-0 lg:w-24 w-8 carousel-next"
-            onClick={this.nextClick}
+          <ButtonControl
+            show={this.state.showButton}
+            type="next"
+            callback={this.nextClick}
           />
         </div>
       </div>
