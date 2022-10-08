@@ -11,6 +11,7 @@ export type MovieTitle = {
   link: string
   allText: string
   allLink: string
+  showLink?: boolean
 }
 
 export type MovieListProps = {
@@ -27,8 +28,15 @@ export type MovieStateType = {
   showButton: boolean
   refChild: any
   refParent: any
+  showLink: boolean
 }
 
 export type MoviePropsType = {
   items: MovieItem[]
+  title: {
+    name: string
+    link: string
+    allText: string
+    allLink: string
+  }
 }
