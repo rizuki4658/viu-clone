@@ -1,14 +1,15 @@
-import React from 'react'
-import { MovieItem } from '../../../types'
+import React, { createRef } from 'react'
+import { CardMovieItem } from '../../../types'
 
-class Card extends React.Component<MovieItem> {
-  constructor(props: MovieItem) {
+class CardMovie extends React.Component<CardMovieItem> {
+  constructor(props: CardMovieItem) {
     super(props)
   }
 
   render() {
     return (
-      <div className="bg-blue-500 rounded-lg inline-block h-full md:w-44 w-20 relative">
+      <div
+        className="bg-blue-500 rounded-md h-full">
         { this.props.img }
         { this.props.name }
         { this.props.desc }
@@ -17,4 +18,4 @@ class Card extends React.Component<MovieItem> {
   }
 }
 
-export default Card
+export default CardMovie

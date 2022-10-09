@@ -27,6 +27,7 @@ export type MovieStateType = {
   refParent: any
   showLink: boolean
   refCard?: any
+  classDetail: string[]
 }
 
 export type MoviePropsType = {
