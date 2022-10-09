@@ -1,5 +1,3 @@
-import { RefObject } from "react"
-
 export type MovieItem = {
   name: string
   img: string
@@ -24,11 +22,11 @@ export type MovieListState = MovieListProps
 
 export type MovieStateType = {
   items?: []
-  counter: number
   showButton: boolean
   refChild: any
   refParent: any
   showLink: boolean
+  refCard?: any
 }
 
 export type MoviePropsType = {
@@ -39,4 +37,10 @@ export type MoviePropsType = {
     allText: string
     allLink: string
   }
+}
+
+export type CardMovieItem = {
+  name: string
+  img: string
+  desc: string
 }

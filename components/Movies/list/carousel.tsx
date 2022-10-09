@@ -4,7 +4,7 @@ import {
   MovieStateType
 } from '../../../types'
 
-import Card from './card'
+import CardMovie from './card'
 import ButtonControl from './button'
 import HeaderList from './header'
 
@@ -13,15 +13,17 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
     super(props)
     this.state = {
       items: [],
-      counter: 0,
       showButton: true,
       refChild: createRef(),
       refParent: createRef(),
-      showLink: false
+      showLink: false,
+      refCard: createRef()
     }
 
     this.nextClick = this.nextClick.bind(this)
     this.prevClick = this.prevClick.bind(this)
+    this.showingButtonControl = this.showingButtonControl.bind(this)
+    this.showingDetail = this.showingDetail.bind(this)
   }
 
   stateSetter(key: string, value: any) {
@@ -34,28 +36,31 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
   }
 
   nextClick() {
-    const parent = this.state.refParent.current
     const child = this.state.refChild.current
-    if (parent.scrollLeft >= parent.scrollWidth) return
+    if (child.scrollLeft >= child.scrollWidth) return
     const perScroll: any = Math.round(child.scrollWidth / 14) // 14 change by items length
-    parent.scrollLeft += perScroll
-    this.stateSetter('counter', this.state.counter + perScroll)
+    child.scrollLeft += (perScroll * 4)
   }
 
   prevClick() {
+    const child = this.state.refChild.current
+    if (child.scrollLeft <= 0) return
+    const perScroll: any = Math.round(child.scrollWidth / 14) // 14 change by items length
+    child.scrollLeft -= (perScroll * 4)
+  }
+
+  showingButtonControl() {
     const parent = this.state.refParent.current
     const child = this.state.refChild.current
-    if (parent.scrollLeft <= 0) return
-    const perScroll: any = Math.round(child.scrollWidth / 14) // 14 change by items length
-    parent.scrollLeft -= perScroll
-    this.stateSetter('counter', this.state.counter - perScroll)
+    this.stateSetter('showButton', child.scrollWidth > parent.offsetWidth)
+  }
+
+  showingDetail() {
+    console.log(this.state.refCard)
   }
 
   componentDidMount(): void {
-    const parent = this.state.refParent.current
-    const child = this.state.refChild.current
-    this.stateSetter('showButton', child.offsetWidth > parent.offsetWidth)
-    this.stateSetter('showButton', child.offsetWidth > parent.offsetWidth)
+    this.showingButtonControl()
   }
 
   render() {
@@ -65,10 +70,10 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
           {...this.props.title}
           showLink={this.state.showLink}
         />
-        <div className="max-w-7xl relative mb-10">
+        <div className="w-full relative bg-pink-500" style={{ minHeight: '150px' }}>
           <div
             ref={this.state.refParent}
-            className="carousel-movie-list max-w-7xl scroll-smooth overflow-hidden">
+            className="relative block">
             <ButtonControl
               show={this.state.showButton}
               type="prev"
@@ -76,62 +81,19 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
             />
             <div
               ref={this.state.refChild}
-              className="md:h-64 h-32 space-x-4 whitespace-nowrap inline-block">
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              {/* <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} />
-              <Card {...{
-                img: '',
-                name: '1',
-                desc: ''
-              }} /> */}
+              className="carousel-movie-list md:h-60 h-32 block whitespace-nowrap space-x-4 overflow-hidden">
+              <div 
+                ref={this.state.refCard}
+                className="inline-block h-full md:w-40 w-20"
+                onMouseEnter={this.showingDetail}>
+                <CardMovie
+                  {...{
+                    img: '',
+                    name: '1',
+                    desc: ''
+                  }}
+                />
+              </div>
             </div>
             <ButtonControl
               show={this.state.showButton}
