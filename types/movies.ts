@@ -27,7 +27,8 @@ export type MovieStateType = {
   refParent: any
   showLink: boolean
   refCard?: any
-  classDetail: string[]
+  classDetail: string[],
+  showCardInfo: boolean
 }
 
 export type MoviePropsType = {
@@ -44,4 +45,6 @@ export type CardMovieItem = {
   name: string
   img: string
   desc: string
+  first?: boolean
+  last?: boolean
 }
