@@ -91,33 +91,11 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
         console.log(e.target.offsetLeft)
       } else cardInfo.style.left = `${(160 * Number(number)) - 40}px`
     }, 300)
-    // if (window.innerWidth < 1024) return
-    // clearTimeout(this.hideTime)
-    
-    // const target: HTMLElement = e?.target
-    // const rect = target?.getBoundingClientRect()
-    // const cardInfo = this.state.refCard.current
-    // cardInfo.style.transform = (rect.x - 40) + 'px'
-    // const oldClass = [...this.state.classDetail]
-    // if (oldClass[oldClass.length - 1] === 'scale-1 visible opacity-100 z-20') return
-    // oldClass[oldClass.length - 1] = 'scale-1 visible opacity-100 z-20'
-    // this.showTime = setTimeout(() => {
-    //   this.stateSetter('classDetail', oldClass)
-    // }, 300)
   }
 
   hidingDetail() {
     this.stateSetter('showCardInfo', false)
     clearTimeout(this.showTime)
-    // if (window.innerWidth < 1024) return
-    // clearTimeout(this.showTime)
-
-    // const oldClass = [...this.state.classDetail]
-    // if (oldClass[oldClass.length - 1] === 'scale-0 invisible opacity-0 z-0') return
-    // oldClass[oldClass.length - 1] = 'scale-0 invisible opacity-0'
-    // this.hideTime = setTimeout(() => {
-    //   this.stateSetter('classDetail', oldClass)
-    // }, 300)
   }
 
   componentDidMount(): void {
