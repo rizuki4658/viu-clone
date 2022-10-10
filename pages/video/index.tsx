@@ -1,10 +1,8 @@
-import React from 'react'
 import type { NextPage } from 'next'
 
 const VideoPage :NextPage = () => {
-  return (
-    <div>Page</div>
-  )
+
+  return <></>
 }
 
 export default VideoPage

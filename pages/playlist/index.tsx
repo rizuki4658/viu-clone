@@ -1,9 +1,8 @@
 import { NextPage } from 'next'
 
 const PlaylistPage: NextPage = () => {
-  return (
-    <div>Page</div>
-  )
+
+  return <></>
 }
 
 export default PlaylistPage
