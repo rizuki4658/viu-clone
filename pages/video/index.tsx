@@ -1,11 +1,10 @@
 import React from 'react'
+import type { NextPage } from 'next'
 
-class MoviePage extends React.Component {
-  render() {
-    return (
-      <div>Page</div>
-    )
-  }
+const VideoPage :NextPage = () => {
+  return (
+    <div>Page</div>
+  )
 }
 
-export default MoviePage
+export default VideoPage

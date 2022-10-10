@@ -1,11 +1,9 @@
-import React from 'react'
+import { NextPage } from 'next'
 
-class PlaylistPage extends React.Component {
-  render() {
-    return (
-      <div>Page</div>
-    )
-  }
+const PlaylistPage: NextPage = () => {
+  return (
+    <div>Page</div>
+  )
 }
 
 export default PlaylistPage
