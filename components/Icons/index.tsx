@@ -6,6 +6,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 import { GoClock } from 'react-icons/go'
 import { BiTrendingUp } from 'react-icons/bi'
 import { FcGoogle } from 'react-icons/fc'
+import { BsFillPlayFill } from 'react-icons/bs'
 
 export const ViuLogo = () => {
   return (
@@ -47,3 +48,5 @@ export const Facebook = () => (<AiFillFacebook />)
 export const GoogleColor = () => (<FcGoogle />)
 
 export const Email = () => (<AiOutlineMail />)
+
+export const Play = () => (<BsFillPlayFill />)
