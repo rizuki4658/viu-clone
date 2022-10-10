@@ -67,13 +67,13 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
   }
 
   showingDetail(e: any) {
+    if (window.innerWidth < 1024) return
     clearTimeout(this.hideTime)
     
     const target: HTMLElement = e?.target
     const rect = target?.getBoundingClientRect()
     const cardInfo = this.state.refCard.current
-    console.log(rect)
-    cardInfo.style.left = rect.x > 35  ? `${rect.x - 84}px` : '16px'
+    cardInfo.style.left = (rect.x - 40) + 'px'
     const oldClass = [...this.state.classDetail]
     if (oldClass[oldClass.length - 1] === 'scale-1 visible opacity-100 z-20') return
     oldClass[oldClass.length - 1] = 'scale-1 visible opacity-100 z-20'
@@ -83,7 +83,9 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
   }
 
   hidingDetail() {
+    if (window.innerWidth < 1024) return
     clearTimeout(this.showTime)
+
     const oldClass = [...this.state.classDetail]
     if (oldClass[oldClass.length - 1] === 'scale-0 invisible opacity-0 z-0') return
     oldClass[oldClass.length - 1] = 'scale-0 invisible opacity-0'
@@ -118,8 +120,7 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
               ref={this.state.refChild}
               className="carousel-movie-list md:h-60 h-32 block whitespace-nowrap space-x-4 overflow-hidden">
               <div 
-                className="inline-block h-full md:w-40 w-20"
-                onMouseEnter={this.showingDetail}>
+                className="inline-block h-full md:w-40 w-20">
                 <CardMovie
                   {...{
                     img: '',
@@ -129,8 +130,7 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
                 />
               </div>
               <div 
-                className="inline-block h-full md:w-40 w-20"
-                onMouseEnter={this.showingDetail}>
+                className="inline-block h-full md:w-40 w-20">
                 <CardMovie
                   {...{
                     img: '',
@@ -140,8 +140,7 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
                 />
               </div>
               <div 
-                className="inline-block h-full md:w-40 w-20"
-                onMouseEnter={this.showingDetail}>
+                className="inline-block h-full md:w-40 w-20">
                 <CardMovie
                   {...{
                     img: '',
@@ -151,8 +150,7 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
                 />
               </div>
               <div 
-                className="inline-block h-full md:w-40 w-20"
-                onMouseEnter={this.showingDetail}>
+                className="inline-block h-full md:w-40 w-20">
                 <CardMovie
                   {...{
                     img: '',
@@ -162,8 +160,7 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
                 />
               </div>
               <div 
-                className="inline-block h-full md:w-40 w-20"
-                onMouseEnter={this.showingDetail}>
+                className="inline-block h-full md:w-40 w-20">
                 <CardMovie
                   {...{
                     img: '',
@@ -178,13 +175,6 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
               type="next"
               callback={this.nextClick}
             />
-          </div>
-
-          <div
-            ref={this.state.refCard}
-            className={this.state.classDetail.join(' ')}
-            onMouseOut={this.hidingDetail}>
-            AA
           </div>
         </div>
       </>

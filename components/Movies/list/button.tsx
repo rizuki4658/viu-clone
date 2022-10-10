@@ -6,15 +6,14 @@ const ButtonControl: React.FC<{
   callback: () => void
 }> = ({...props}) => {
   let buttonClass = [
-    'absolute',
-    'z-10',
+    'absolute z-10',
     'top-0 bottom-0',
-    'lg:w-24 w-8'
+    'md:w-8 w-4'
   ]
   if (props.show) {
     if (props.type === 'next') {
-      buttonClass = [...buttonClass, 'lg:-right-12', '-right-6', 'carousel-next']
-    } else buttonClass = [...buttonClass, 'lg:-left-12', '-left-6', 'carousel-prev']
+      buttonClass = [...buttonClass, 'md:-right-4', '-right-2', 'carousel-next']
+    } else buttonClass = [...buttonClass, 'md:-left-4', '-left-2', 'carousel-prev']
 
     return (
       <button
