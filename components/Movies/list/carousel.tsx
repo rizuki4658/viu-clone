@@ -50,13 +50,15 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
 
   createData() {
     const test = []
-    for (let i = 0; i < 21; i++) {
+    for (let i = 0; i < 14; i++) {
       test.push({
         name: `name ${i + 1}`,
         img: '',
         desc: ''
       })
     }
+    console.log(Math.round(1280 / 176))
+    console.log(Math.round(1280 / 88))
     this.stateSetter('items', test)
   }
 
@@ -143,7 +145,7 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
             />
             <div
               ref={this.state.refChild}
-              className="carousel-movie-list md:h-60 h-32 block whitespace-nowrap space-x-4 overflow-hidden">
+              className="carousel-movie-list md:h-60 h-32 block whitespace-nowrap md:space-x-4 space-x-2 overflow-hidden">
               {
                 this.state.items?.map((item: { name: string }, key) => (
                   <div
