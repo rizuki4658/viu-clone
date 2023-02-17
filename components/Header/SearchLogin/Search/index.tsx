@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import { movies } from '../../../../constants/search'
-import { StateSearch, Movie } from '../../../../types'
+import { StateSearch, PropsSearch, Movie } from '../../../../types'
 
 import {
   Search as IconSearch,
@@ -11,11 +11,11 @@ import {
   TrendingUp as IconTrendingUp
 } from '../../../Icons'
 
-class Search extends React.Component<StateSearch, StateSearch> {
+class Search extends React.Component<PropsSearch, StateSearch> {
   constructor (props: StateSearch) {
     super(props)
     this.state = {
-      show: false,
+      show: props.show,
       search: '',
       history: [],
       results: movies,
@@ -28,11 +28,14 @@ class Search extends React.Component<StateSearch, StateSearch> {
   }
 
   setterState = (newState: StateSearch) => {
-    this.setState((state: StateSearch) => ({
+    this.setState((state: StateSearch) => {
+      const result = ({
         ...state,
         ...newState
       })
-    )
+      this.props.onChangeData(result)
+      return result
+    })
   }
 
   handleShow() {
@@ -77,6 +80,10 @@ class Search extends React.Component<StateSearch, StateSearch> {
     })
 
     e.preventDefault()
+  }
+
+  handleChangeDataToParent() {
+    this.props.onChangeData()
   }
 
   History() {

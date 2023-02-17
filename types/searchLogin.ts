@@ -15,3 +15,12 @@ export interface StateSearch {
   results?: Movie[]
   onSearch?: boolean
 }
+
+export interface PropsSearch {
+  show?: boolean
+  search?: string | undefined
+  history?: string[]
+  results?: Movie[]
+  onSearch?: boolean
+  onChangeData?: any
+}
