@@ -1,5 +1,4 @@
 import React,{ createRef } from 'react'
-import { CSSTransition } from 'react-transition-group'
 import {
   MoviePropsType,
   MovieStateType
