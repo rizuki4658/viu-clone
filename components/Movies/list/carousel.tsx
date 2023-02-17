@@ -57,8 +57,6 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
         desc: ''
       })
     }
-    console.log(Math.round(1280 / 176))
-    console.log(Math.round(1280 / 88))
     this.stateSetter('items', test)
   }
 
