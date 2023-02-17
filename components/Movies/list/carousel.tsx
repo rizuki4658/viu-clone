@@ -79,25 +79,32 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
   }
 
   showingDetail(number: number | string, e: any) {
-    this.stateSetter('showCardInfo', false)
     this.stateSetter('showCardInfo', true)
     this.showTime = setTimeout(() => {
-      const cardInfo = this.state.refCard.current
-      const child = this.state.refChild.current
+      const cardInfo: HTMLDivElement = this.state.refCard.current
+      const child: HTMLDivElement = this.state.refChild.current
+
+      if (!child) return
+
+      if (cardInfo.style.display === 'none') cardInfo.style.display = 'block'
+
       if (e.target.offsetLeft > (child.clientWidth - 224)) {
         cardInfo.style.left = `${(e.target.offsetLeft - child.clientWidth)}px`
-        console.log(e.target.offsetLeft)
       } else cardInfo.style.left = `${(160 * Number(number)) - 40}px`
-    }, 300)
+    }, 1000)
   }
 
   hidingDetail() {
     this.stateSetter('showCardInfo', false)
+    const card: HTMLDivElement = this.state.refCard.current
+    card.style.display = 'none'
+    card.style.left = ''
     clearTimeout(this.showTime)
   }
 
   componentDidMount(): void {
     this.createData()
+    this.hidingDetail()
     setTimeout(this.showingButtonControl, 500)
   }
 
