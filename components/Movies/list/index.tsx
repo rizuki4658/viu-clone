@@ -11,12 +11,9 @@ class MovieList extends React.Component<MovieListProps, MovieListState> {
     super(props)
 
     this.state = {
-      title: { ...this.props.title },
       items: [],
       screen: 0
     }
-
-    this.handleResize = this.handleResize.bind(this)
   }
 
   stateSetter(key: string, value: any) {
@@ -27,33 +24,17 @@ class MovieList extends React.Component<MovieListProps, MovieListState> {
     })
   }
 
-  handleResize(e: any) {
-    this.stateSetter('screen', e.target.innerWidth)
-  }
-
-  componentDidMount(): void {
-   window.addEventListener('resize', this.handleResize)
-  }
-
   render() {
     return (
       <div id="containerList">
-        <CarouselLists
-          title={this.state.title}
-          items={this.state.items}
-        />
-        <CarouselLists
-          title={this.state.title}
-          items={this.state.items}
-        />
-        <CarouselLists
-          title={this.state.title}
-          items={this.state.items}
-        />
-        <CarouselLists
-          title={this.state.title}
-          items={this.state.items}
-        />
+        {
+          this.state.items.map((item: any) => (
+            <CarouselLists
+              title={item.title}
+              items={item.items}
+            />
+          ))
+        }
       </div>
     )
   }

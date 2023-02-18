@@ -13,7 +13,7 @@ export type MovieTitle = {
 }
 
 export type MovieListProps = {
-  title: MovieTitle
+  title?: MovieTitle
   items: MovieItem[]
   screen?: number
 }

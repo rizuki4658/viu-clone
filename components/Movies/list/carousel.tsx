@@ -33,7 +33,6 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
     this.showingButtonControl = this.showingButtonControl.bind(this)
     this.showingDetail = this.showingDetail.bind(this)
     this.hidingDetail = this.hidingDetail.bind(this)
-    this.createData = this.createData.bind(this)
   }
   showTime: any
   hideTime: any
@@ -45,18 +44,6 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
         [key]: value
       }
     }))
-  }
-
-  createData() {
-    const test = []
-    for (let i = 0; i < 14; i++) {
-      test.push({
-        name: `name ${i + 1}`,
-        img: '',
-        desc: ''
-      })
-    }
-    this.stateSetter('items', test)
   }
 
   nextClick() {
@@ -108,7 +95,6 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
   }
 
   componentDidMount(): void {
-    this.createData()
     this.hidingDetail()
     setTimeout(this.showingButtonControl, 500)
   }
