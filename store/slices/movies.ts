@@ -26,6 +26,6 @@ export const moviesSlice = createSlice({
 
 export const { setMoviesHome } = moviesSlice.actions
 
-export const selectAuthState = (state: AppState) => state.movies
+export const selectMoviesState = (state: AppState) => state.movies
 
 export default moviesSlice.reducer
