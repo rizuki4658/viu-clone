@@ -19,6 +19,7 @@
       "@/components/*": ["components/*"],
       "@/constants/*": ["constants/*"],
       "@/store/*": ["store/*"],
+      "@/pages/*": ["pages/*"],
       "@/types/*": ["types/*"],
       "@/*": ["/*"]
     }
