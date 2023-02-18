@@ -51,7 +51,7 @@ class Header extends React.Component<StateHeader, StateHeader> {
 
   onChangeDataSearch = (e: any) => {
     this.setterState({
-      scrolledY: e.show ? true : this.state.scrolledY,
+      scrolledY: e.show,
       showSearch: e.show
     })
   }
