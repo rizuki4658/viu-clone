@@ -2,6 +2,10 @@ export type MovieItem = {
   name: string
   img: string
   desc: string
+  year: string
+  language: string
+  small_banner: string
+  big_banner: string
 }
 
 export type MovieTitle = {
