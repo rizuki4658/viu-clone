@@ -1,0 +1,1 @@
+export const GET_MOVIES_HOME = 'GET_MOVIES_HOME'
