@@ -1,9 +1,5 @@
 import Axios from './axios'
 
-export const getMovies = () => {
-  Axios.get('/movies').then((response) => {
-    return response
-  }).catch((err) => {
-    console.error(err)
-  })
+export const getMovies = async () => {
+  return Axios.get('/movies').then((response) => response.data).catch((err) => console.error(err))
 }

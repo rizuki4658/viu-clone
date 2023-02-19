@@ -4,12 +4,11 @@ import { getMovies } from '@/api/movies'
 
 export const getMoviesHome = () => async (dispatch: Dispatch) => {
   try {
-    getMovies()
-    console.log(dispatch)
-    // dispatch({
-    //   type: GET_MOVIES_HOME,
-    //   payload: ,
-    // })
+    const data = await getMovies()
+    dispatch({
+      type: GET_MOVIES_HOME,
+      payload: data || [],
+    })
   } catch (error) {
     console.error(error)
   }
