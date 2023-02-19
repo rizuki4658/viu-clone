@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   MovieListProps,
   MovieListState
@@ -6,38 +6,36 @@ import {
 
 import CarouselLists from './carousel'
 
-class MovieList extends React.Component<MovieListProps, MovieListState> {
-  constructor(props: MovieListProps) {
-    super(props)
+export const MovieList: React.FC<{ items: any[] }> = ({...props}) => {
+  const [ state, setState ]: [MovieListState, any] = useState({
+    items: [],
+    screen: 0
+  })
 
-    this.state = {
-      items: [],
-      screen: 0
-    }
-  }
-
-  stateSetter(key: string, value: any) {
-    const oldState = {...this.state}
-    this.setState({
-      ...oldState,
+  const stateSetter = (key: string, value: any) => {
+    setState((state: MovieListState) => ({
+      ...state,
       [key]: value
-    })
+    }))
   }
 
-  render() {
-    return (
-      <div id="containerList">
-        {
-          this.state.items.map((item: any) => (
-            <CarouselLists
-              title={item.title}
-              items={item.items}
-            />
-          ))
-        }
-      </div>
-    )
-  }
+  useEffect(() => {
+    stateSetter('items', props.items)
+  }, [props.items])
+
+  return (
+    <div id="containerList">
+      {
+        state.items.map((item: any, key: number) => (
+          <CarouselLists
+            key={key}
+            title={item.title}
+            items={item.items}
+          />
+        ))
+      }
+    </div>
+  )
 }
 
 export default MovieList

@@ -95,6 +95,7 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
   }
 
   componentDidMount(): void {
+    this.stateSetter('items', this.props.items)
     this.hidingDetail()
     setTimeout(this.showingButtonControl, 500)
   }
@@ -121,14 +122,14 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
               ref={this.state.refChild}
               className="carousel-movie-list md:h-60 h-32 block whitespace-nowrap md:space-x-4 space-x-2 overflow-hidden">
               {
-                this.state.items?.map((item: { name: string }, key) => (
+                this.state.items?.map((item: { name: string, img: string }, key) => (
                   <div
                     key={key}
                     // onMouseEnter={this.showingDetail.bind(this, key)}>
                     className="inline-block h-full md:w-40 w-20">
                     <CardMovie
                       {...{
-                        img: '',
+                        img: item.img,
                         name: item.name,
                         desc: ''
                       }}

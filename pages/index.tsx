@@ -18,7 +18,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Carousel />
-      <Movies />
+      <Movies items={movies} />
     </div>
   )
 }
