@@ -48,7 +48,7 @@ const HeaderList: React.FC<MovieTitle> = (props) => {
       </h2>
       <LinkAll
         show={props.showLink}
-        text={props.allText}
+        text={props.all_text}
         link={props.name}
       />
     </div>

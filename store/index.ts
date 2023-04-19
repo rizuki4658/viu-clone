@@ -1,11 +1,11 @@
 import  { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
-import { moviesSlice } from '@/store/slices/movies'
+// import { moviesSlice } from '@/store/slices/movies'
 import { createWrapper } from 'next-redux-wrapper'
 
 const makeStore = () => (
   configureStore({
     reducer: {
-      [moviesSlice.name]: moviesSlice.reducer
+      // [moviesSlice.name]: moviesSlice.reducer
     },
     devTools: true
   })

@@ -16,7 +16,7 @@ class CarouselLists extends React.Component<MoviePropsType, MovieStateType> {
       showButton: true,
       refChild: createRef(),
       refParent: createRef(),
-      showLink: false,
+      showLink: this.props.title.link || this.props.title.link !== '' ? true : false,
       refCard: createRef(),
       classDetail: [
         'absolute top-1/2',

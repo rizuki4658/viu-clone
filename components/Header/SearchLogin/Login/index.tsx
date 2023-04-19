@@ -119,7 +119,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                 </div>
             </div>
             <div
-              className="md:block bg-black"
+              className="md:block bg-black rounded-3xl"
               style={{ width: '360px' }}>
               <img src="./img/login-image.png" className="rounded-tr-3xl rounded-br-3xl" />
             </div>
