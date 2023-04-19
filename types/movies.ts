@@ -11,8 +11,8 @@ export type MovieItem = {
 export type MovieTitle = {
   name: string
   link: string
-  allText: string
-  allLink: string
+  all_text: string
+  all_link: string
   showLink?: boolean
 }
 
@@ -40,8 +40,8 @@ export type MoviePropsType = {
   title: {
     name: string
     link: string
-    allText: string
-    allLink: string
+    all_text: string
+    all_link: string
   }
 }
 
